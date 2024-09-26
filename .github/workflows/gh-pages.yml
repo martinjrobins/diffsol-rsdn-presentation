@@ -34,7 +34,7 @@ jobs:
       - name: Generate html
         run: make
       - name: Generate archive.tar
-        run: tar -cvf "$RUNNER_TEMP\artifact.tar" index.html 
+        run: tar -cvf "$RUNNER_TEMP/artifact.tar" index.html 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
