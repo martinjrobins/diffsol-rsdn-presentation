@@ -33,10 +33,12 @@ jobs:
 
       - name: Generate html
         run: make
+      - name: Generate archive.tar
+        run: tar -cvf archive.tar index.html 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: index.html
+          path: archive.tar
 
   # Deployment job
   deploy:
