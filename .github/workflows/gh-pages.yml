@@ -33,13 +33,11 @@ jobs:
 
       - name: Generate html
         run: make
-      - name: Generate archive.tar
-        run: tar -cvf ${{ runner.temp }}/artifact.tar index.html 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload Artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
+          path: "."
 
   # Deployment job
   deploy:
